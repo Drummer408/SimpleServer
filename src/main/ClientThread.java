@@ -4,7 +4,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.List;
 
 public class ClientThread extends Thread {
     public static final int MIN_NUM_ARGS = 2;
