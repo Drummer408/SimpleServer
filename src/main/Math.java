@@ -1,6 +1,17 @@
 package main;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Math {
+    public static Set<String> availableFunctions = new HashSet<>(Arrays.asList(
+            GlobalConstants.ADD_FUNC,
+            GlobalConstants.SUB_FUNC,
+            GlobalConstants.MULT_FUNC,
+            GlobalConstants.DIV_FUNC
+            ));
+
     public double processCalculation(String mathFunction, double[] arguments) {
         double result = 0.0;
 
@@ -18,7 +29,7 @@ public class Math {
                 result = div(arguments);
                 break;
             default:
-                throw new IllegalArgumentException("Invalid math function entered.");
+                break;
         }
 
         return result;

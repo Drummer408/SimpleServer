@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ClientThread extends Thread {
-    public static final int MIN_NUM_ARGS = 2;
-    private static final String EXIT_FLAG = "exit";
-
     private Socket socket;
     private DataInputStream din;
     private DataOutputStream dout;
@@ -27,19 +24,19 @@ public class ClientThread extends Thread {
     public void run() {
         String input = "";
 
-        while (!input.toLowerCase().equals(EXIT_FLAG)) {
+        while (!input.toLowerCase().equals(GlobalConstants.EXIT_FLAG)) {
             try {
                 input = din.readUTF();
                 String[] inputArray = input.split(GlobalConstants.INPUT_DELIM);
-                if (inputArray.length < MIN_NUM_ARGS) {
-                    dout.writeUTF("You must enter a MINIMUM of three arguments.\nThe first argument must be the " +
+                String mathFunction = inputArray[0];
+                if (inputArray.length < GlobalConstants.MIN_NUM_ARGS || !Math.availableFunctions.contains(mathFunction)) {
+                    dout.writeUTF("You must enter a minimum of three arguments.\nThe first argument must be the " +
                         "name of a math function (add, subtract, multiply, or divide).\nThe remaining arguments " +
                         "must be real numbers.\n");
                     dout.flush();
                     continue;
                 }
 
-                String mathFunction = inputArray[0];
                 double[] arguments = new double[inputArray.length - 1];
                 for (int i = 1; i < inputArray.length; i++) {
                     // TODO: CHECK IF STRING IS NUMERIC. IF SO, PARSE IT AND ADD TO ARGS ARRAY. IF NOT, CONTINUE THRU LOOP
@@ -49,7 +46,7 @@ public class ClientThread extends Thread {
                 Math math = new Math();
                 double result = math.processCalculation(mathFunction, arguments);
 
-                dout.writeUTF("Result: " + result);
+                dout.writeUTF("Result: " + result + "\n");
                 dout.flush();
 
             } catch (IOException | IllegalArgumentException e) {
