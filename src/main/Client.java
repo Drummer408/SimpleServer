@@ -45,7 +45,8 @@ public class Client {
         Client client = new Client(GlobalConstants.HOST, GlobalConstants.PORT);
         Scanner scanner = new Scanner(System.in);
         String input = "";
-        while (input.toLowerCase() != "exit") {
+        while (input.toLowerCase() != GlobalConstants.EXIT_FLAG) {
+            System.out.print("$ ");
             input = scanner.nextLine();
             client.sendMessage(input);
 
