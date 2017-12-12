@@ -2,7 +2,7 @@
 THIS IS A WORK IN PROGRESS. THIS IS NOT THE FINAL VERSION AND TESTING/BUG FIXING IS STILL TAKING PLACE.
 
 ## Introduction
-A small scale web server that performs basic mathematical computations. The purpose of this project is to expand upon core network programming skills and experiment with multi-threaded client/server applications. This project is completed without the use of third party networking libraries in order to gain a deeper insight on what exactly is happening "behind the scenes".
+A small scale web server that performs basic mathematical computations. The purpose of this project is to expand upon core network programming skills and experiment with multi-threaded client/server applications. This project is completed without the use of third party networking libraries in order to gain a deeper insight on what exactly is happening "behind the scenes" of network programming.
 
 The functions provided by this web server are:
 * add
