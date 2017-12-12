@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
     private Socket socket;
@@ -21,7 +22,35 @@ public class Client {
         }
     }
 
+    public void sendMessage(String message) {
+        try {
+            dout.writeUTF(message);
+            dout.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String receiveMessage() {
+        String response = "";
+        try {
+            response = din.readUTF();
+        } catch (IOException e) {
+            response = e.getMessage();
+        }
+        return response;
+    }
+
     public static void main(String[] args) {
-        // TODO: IMPLEMENT CLIENT CODE
+        Client client = new Client(GlobalConstants.HOST, GlobalConstants.PORT);
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while (input.toLowerCase() != "exit") {
+            input = scanner.nextLine();
+            client.sendMessage(input);
+
+            String response = client.receiveMessage();
+            System.out.println(response);
+        }
     }
 }
