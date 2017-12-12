@@ -10,7 +10,7 @@ The functions provided by this web server are:
 * divide
 
 ## Syntax
-In order to run the client, you must first make sure the server is running. Once everything is running appropriately, the client will display a prompt similar to that of a unix shell --> "$ ". When you see this prompt, this means that the system is waiting for you to enter data. Proper syntax is as follows:
+In order to run the client, you must first make sure the server is running. Once everything is running appropriately, the client will display a prompt similar to that of a unix shell --> "$ ". When you see this prompt, the system is waiting for you to enter data. Proper syntax is as follows:
 
 ```
 <math_function> <argument_1> <argument_2> ... <argument_n>
