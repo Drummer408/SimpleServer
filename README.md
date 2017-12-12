@@ -17,3 +17,5 @@ In order to run the client, you must first make sure the server is running. Once
 ```
 * <math_function> should be replaced with any of the mathematical functions listed above. Invalid spelling or a function that does not exist will return an error message to the user.
 * <argument_1> ... <argument_n> refers to the argument list. Arguments must be real numbers, otherwise an error message will be returned to the user. You can have as many arguments as you want, but they MUST be separated by spaces and you MUST enter at least two real number arguments.
+
+Because only one math function can be entered at a time, order of operations is not supported.
